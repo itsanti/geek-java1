@@ -1,5 +1,11 @@
 package hw1;
 
+/**
+ * Homework #1
+ *
+ * @author Aleksandr Kurov
+ * @version dated Май 07, 2018
+ */
 public class Runner {
 
     /**
@@ -53,7 +59,7 @@ public class Runner {
         byte a = 13;      // -128..127
         short b = -32000; // -32768..32767
         int c = 483647;   // -2147483648..2147483647
-        long d = 483647L; // -18446744073709551616..18446744073709551615
+        long d = 4_073_709_551_615L; // -18446744073709551616..18446744073709551615
         float e = 2.7f;
         double f = 3.14;
         char g = 'S';
