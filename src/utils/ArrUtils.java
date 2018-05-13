@@ -45,6 +45,12 @@ public class ArrUtils {
         System.out.print(Arrays.toString(arr));
     }
 
+    /**
+     * Print one dimensional array
+     *
+     * @param arr one dimensional array
+     * @param padding from left side
+     */
     public static void printArr(int[] arr, String padding) {
         System.out.print(padding + Arrays.toString(arr));
     }
@@ -54,6 +60,7 @@ public class ArrUtils {
      *
      * @param arr two dimensional array
      * @param isMatrix print mode line or table
+     * @param padding from left side
      */
     public static void printArr(int[][] arr, boolean isMatrix, String padding) {
         if (isMatrix) {
