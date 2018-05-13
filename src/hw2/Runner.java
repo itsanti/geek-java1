@@ -6,7 +6,7 @@ import utils.ArrUtils;
  * Homework #2
  *
  * @author Aleksandr Kurov
- * @version dated Май 12, 2018
+ * @version dated Май 13, 2018
  */
 public class Runner {
 
@@ -47,6 +47,25 @@ public class Runner {
         }
 
         // task 7
+        System.out.print("task 7: rotate array");
+
+        int[][] testData1 = {
+                {1},
+                {1, 2},
+                {1, 2, 3},
+                {1, 2, 3, 4}
+        };
+
+        for (int i = 0; i < testData1.length; i++) {
+            System.out.print("\n  before => ");
+            ArrUtils.printArr(testData1[i]);
+            System.out.print("\n  after  =>");
+            for (int n = -testData1[i].length - 1; n <= testData1[i].length + 1; n++) {
+                int[] tmp = testData1[i].clone();
+                System.out.printf("\n    n = %2d: ", n);
+                ArrUtils.printArr(rotateArr(tmp, n));
+            }
+        }
 
     }
 
@@ -171,7 +190,32 @@ public class Runner {
     }
 
     /**
-     * task 7:
+     * task 7: rotate array elements by n positions
+     *
+     * @param arr initial array
+     * @param n positive and negative offset
+     * @return rotated array
      */
+    public static int[] rotateArr(int[] arr, int n) {
+
+        n %= arr.length;
+
+        if (n == 0 || arr.length == 1) return arr;
+
+        if (n < 0) n += arr.length;
+
+        for (int it = 0; it < n; it++) {
+
+            int before = arr[arr.length - 1];
+            for (int i = 0; i < arr.length; i++) {
+                int current = arr[i];
+                arr[i] = before;
+                before = current;
+            }
+
+        }
+
+        return arr;
+    }
 
 }
