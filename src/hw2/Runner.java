@@ -28,7 +28,23 @@ public class Runner {
         searchMinMaxArr();
 
         // task 6
+        System.out.print("task 6: arrays balance\n");
 
+        int[][] testData = {
+            {1, 1, 1, 2, 1},
+            {2, 1, 1, 2, 1},
+            {10, 10},
+            ArrUtils.genArr(3,0, 1),
+            ArrUtils.genArr(4,-6, -1),
+            ArrUtils.genArr(5,-2, 5),
+            ArrUtils.genArr(8,1, 3),
+            ArrUtils.genArr(20,0, 5)
+        };
+
+        for (int i = 0; i < testData.length; i++) {
+            ArrUtils.printArr(testData[i], "  ");
+            System.out.println(" => " + checkBalance(testData[i]));
+        }
 
         // task 7
 
@@ -101,7 +117,7 @@ public class Runner {
         }
 
         System.out.printf("task 4: matrix %dx%d\n", arr.length, arr.length);
-        ArrUtils.printArr(arr, true);
+        ArrUtils.printArr(arr, true, "  ");
         System.out.println();
     }
 
@@ -125,8 +141,34 @@ public class Runner {
     }
 
     /**
-     * task 6:
+     * task 6: check if array is balanced
+     *
+     * @param arr of integers
+     * @return boolean balanced or not
      */
+    public static boolean checkBalance(int[] arr) {
+
+        if (arr.length < 2) return false;
+
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) sum += arr[i];
+
+        if (sum % 2 == 0) {
+
+            int leftSum = 0;
+            sum /= 2;
+
+            for (int i = 0; i < arr.length - 1; i++) {
+                leftSum += arr[i];
+                if (leftSum == sum) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
 
     /**
      * task 7:

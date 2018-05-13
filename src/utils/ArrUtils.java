@@ -45,19 +45,23 @@ public class ArrUtils {
         System.out.print(Arrays.toString(arr));
     }
 
+    public static void printArr(int[] arr, String padding) {
+        System.out.print(padding + Arrays.toString(arr));
+    }
+
     /**
      * Print two dimensional array as line or matrix
      *
      * @param arr two dimensional array
-     * @param isMatrix print mode
+     * @param isMatrix print mode line or table
      */
-    public static void printArr(int[][] arr, boolean isMatrix) {
+    public static void printArr(int[][] arr, boolean isMatrix, String padding) {
         if (isMatrix) {
             for (int i = 0; i < arr.length - 1; i++) {
-                printArr(arr[i]);
+                printArr(arr[i], padding);
                 System.out.println();
             }
-            printArr(arr[arr.length - 1]);
+            printArr(arr[arr.length - 1], padding);
         } else {
             System.out.print(Arrays.deepToString(arr));
         }
