@@ -74,4 +74,79 @@ public class ArrUtils {
         }
     }
 
+    /**
+     * Search min and max value in array
+     */
+    public static int[] searchMinMaxArr(int[] arr) {
+
+        int min, max;
+        min = max = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) max = arr[i];
+            if (arr[i] < min) min = arr[i];
+        }
+
+        return arr;
+    }
+
+    /**
+     * Check if array is balanced
+     *
+     * @param arr of integers
+     * @return boolean balanced or not
+     */
+    public static boolean checkBalance(int[] arr) {
+
+        if (arr.length < 2) return false;
+
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) sum += arr[i];
+
+        if (sum % 2 == 0) {
+
+            int leftSum = 0;
+            sum /= 2;
+
+            for (int i = 0; i < arr.length - 1; i++) {
+                leftSum += arr[i];
+                if (leftSum == sum) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+
+    /**
+     * Rotate array elements by n positions
+     *
+     * @param arr initial array
+     * @param n positive and negative offset
+     * @return rotated array
+     */
+    public static int[] rotateArr(int[] arr, int n) {
+
+        n %= arr.length;
+
+        if (n == 0 || arr.length == 1) return arr;
+
+        if (n < 0) n += arr.length;
+
+        for (int it = 0; it < n; it++) {
+
+            int before = arr[arr.length - 1];
+            for (int i = 0; i < arr.length; i++) {
+                int current = arr[i];
+                arr[i] = before;
+                before = current;
+            }
+
+        }
+
+        return arr;
+    }
+
 }
