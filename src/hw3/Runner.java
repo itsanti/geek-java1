@@ -64,7 +64,7 @@ public class Runner {
                 } else if (askInt < getInt) {
                     System.out.println("Nope =( Your number is BIGGER.\n");
                 } else {
-                    System.out.println("\n### You WIN! ###\n");
+                    System.out.println("\n### You WON! ###\n");
                     break;
                 }
             }
@@ -88,8 +88,7 @@ public class Runner {
                 "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut",
                 "pear", "pepper", "pineapple", "pumpkin", "potato"};
 
-        int maxLen = 15;
-        char[] lastAnswer = new char[maxLen];
+        char[] lastAnswer = new char[15];
 
         do {
 
@@ -105,7 +104,7 @@ public class Runner {
                 String getWord = scanner.next().toLowerCase();
 
                 if (askWord.equals(getWord)) {
-                    System.out.println("\n### You WIN! ###\n");
+                    System.out.println("\n### You WON! ###\n");
                     break;
                 }
 
