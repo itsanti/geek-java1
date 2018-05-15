@@ -1,5 +1,6 @@
 package hw3;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -79,10 +80,48 @@ public class Runner {
     }
 
     /**
-     * task 2:
+     * task 2: Guess Word Game
      */
     public static void GuessWordGame(Scanner scanner) {
-        System.out.println("cool GuessWordGame here!!11");
+
+        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry",
+                "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut",
+                "pear", "pepper", "pineapple", "pumpkin", "potato"};
+
+        int maxLen = 15;
+        char[] lastAnswer = new char[maxLen];
+
+        do {
+
+            System.out.println("\nHi User. I ask word in given list for you.\n" +
+                    "Try to guess it. Good Luck!\n");
+
+            String askWord = words[new Random().nextInt(words.length)];
+            Arrays.fill(lastAnswer, '#');
+
+            while (true) {
+
+                System.out.print("\ninput word: ");
+                String getWord = scanner.next().toLowerCase();
+
+                if (askWord.equals(getWord)) {
+                    System.out.println("\n### You WIN! ###\n");
+                    break;
+                }
+
+                int len = (askWord.length() <= getWord.length()) ? askWord.length() : getWord.length();
+
+                for (int i = 0; i < len; i++)
+                    if (askWord.charAt(i) == getWord.charAt(i)) lastAnswer[i] = askWord.charAt(i);
+
+                System.out.println(lastAnswer);
+
+            }
+
+            System.out.print("Play again? 1 - yes / 0 - no: ");
+
+        } while (scanner.nextInt() == 1);
+
     }
 
 }
