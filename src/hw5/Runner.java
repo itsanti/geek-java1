@@ -9,6 +9,7 @@ package hw5;
 public class Runner {
     public static void main(String[] args) {
 
+        // Task 1: OOP Basics
         Employee[] employeeDb = new Employee[5];
 
         employeeDb[0] = new Employee("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "89451234555", 30000, 30);
@@ -22,6 +23,11 @@ public class Runner {
                 emp.getEmployeeInfo();
             }
         }
+
+        System.out.println();
+
+        // Task 2: TicTacToe OOP Style
+        new TicTacToeOOP();
 
     }
 }
